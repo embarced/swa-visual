@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['treemap']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Hersteller', 'Parent', 'Verkäufe (size)', 'Jahreszahl (color)'],
+
+                ['Alle',       null,              0,                               0],
+
+                ['Atari',     'Alle',             0,                               0],
+                ['Nintendo',  'Alle',             0,                               0],
+                ['Sega',      'Alle',             0,                               0],
+                ['Microsoft', 'Alle',             0,                               0],
+                ['Sony',      'Alle',             0,                               0],
+
+                ['Atari 2600', 'Atari',           30,                            1977],
+
+                ['NES',        'Nintendo',        62,                            1983],
+                ['SNES',       'Nintendo',        50,                            1990],
+                ['Nintendo 64','Nintendo',        32,                            1996],
+                ['GameCube',   'Nintendo',        22,                            2001],
+                ['Wii',        'Nintendo',        101,                           2006],
+                ['Wii U',      'Nintendo',         13,                           2012],
+                ['Switch',     'Nintendo',         55,                           2017],
+
+                ['Master System'      , 'Sega',    13,                       1985],
+                ['Genesis / Megadrive', 'Sega',    31,                       1988],
+                ['Saturn',              'Sega',    10,                       1994],
+                ['Dreamcast',           'Sega',     9,                       1998],
+
+                ['Xbox',     'Microsoft',  24,  2002],
+                ['Xbox 360', 'Microsoft',  84,  2005],
+                ['Xbox One', 'Microsoft',  39,  2013],
+
+                ['Playstation',   'Sony',  100,  1994],
+                ['Playstation 2', 'Sony',  155,  2000],
+                ['Playstation 3', 'Sony',  87,   2006],
+                ['Playstation 4', 'Sony',  106,  2013]
+
+            ]);
+
+            tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+
+            tree.draw(data, {
+                minColor: '#999',
+                midColor: '#ddd',
+                maxColor: '#0ff',
+                headerHeight: 15,
+                fontColor: 'black',
+                showScale: true
+            });
+
+        }
+    </script>
+</head>
+<body>
+<div id="chart_div" style="width: 900px; height: 500px;"></div>
+</body>
+</html>
